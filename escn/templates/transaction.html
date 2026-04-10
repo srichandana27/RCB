@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">ACCOUNT NUMBER </label>
+        <input type="number" name="acc" id="">
+        <br><br>
+        <label for="">PIN</label>
+        <input type="password" name="pin" id="">
+        <br><br>
+        <label for="">AMOUNT</label>
+        <input type="number" name="amt" id="">
+        <br><br>
+        {% if flag %}
+        <button type="submit">WITHDRAW</button>
+        {% else %}
+        <button type="submit">DEPOSIT</button>
+        {% endif %}
+    </form>
+
+    {% for i in messages %}
+    <p>{{i}}</p>
+    {% endfor %}
+</body>
+</html>

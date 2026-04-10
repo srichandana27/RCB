@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ENTER YOUR OTP</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">OTP</label>
+        <input type="number" name="opt" id="">
+        <br><br>
+        <label for="">PIN</label>
+        <input type="password" name="pin" id="">
+        <br><br>
+        <label for="">CONFIRM PIN</label>
+        <input type="password" name="c_pin" id="">
+        <button type="submit">SET PIN</button>
+    </form>
+    {% for i in messages %}
+    <p>{{i}}</p>
+    {% endfor %}
+</body>
+</html>

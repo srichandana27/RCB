@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        FROM ACCOUNT : <input type="number" name="f_acc" id=""><br><br>
+        PIN : <input type="password" name="pin" id=""> <br><br>
+        TO ACCOUNT : <input type="number" name="t_acc" id=""> <br><br>
+        AMOUNT : <input type="number" name="amt" id="">
+        <button type="submit">TRANSFER</button>
+    </form>
+</body>
+</html>

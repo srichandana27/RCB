@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">ACCOUNT NUMBER </label>
+        <input type="number" name="acc" id="">
+        <br><br>
+        <label for="">AADHAR</label>
+        <input type="number" name="aadhar" id="">
+        <br><br>
+        <label for="">PHONE</label>
+        <input type="number" name="phone" id="">
+        <br><br>    
+        <button type="submit">SEND OTP</button>
+    </form>
+
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+</body>
+</html>
