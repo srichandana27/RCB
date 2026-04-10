@@ -1,0 +1,71 @@
+
+pip install cryptography
+
+
+
+ acticate the shell ->
+from cryptography.fernet import Fernet
+print(Fernet.generate_key())
+
+
+Example output:
+
+
+b'8sK9DkPp2bX...abc'
+
+
+Add this to **settings.py**
+
+ENCRYPTION_KEY = b'8sK9DkPp2bX...abc'
+
+
+
+Create file:
+
+
+--/utils/encryption.py
+
+from cryptography.fernet import Fernet
+from django.conf import settings
+
+fernet = Fernet(settings.ENCRYPTION_KEY)
+
+def encrypt_pin(pin):
+    return fernet.encrypt(pin.encode()).decode()
+
+def decrypt_pin(encrypted_pin):
+    return fernet.decrypt(encrypted_pin.encode()).decode()
+
+---
+
+from django.db import models
+from .utils.encryption import encrypt_pin, decrypt_pin
+
+
+    def set_pin(self, raw_pin):
+        self.pin = encrypt_pin(raw_pin)
+
+    def get_pin(self):
+        return decrypt_pin(self.pin)
+```
+
+---
+
+account.set_pin("1234")
+account.save()
+```
+
+
+```
+gAAAAABlY7rV...
+```
+
+Not readable.
+
+---
+
+
+real_pin = account.get_pin()
+
+
+
